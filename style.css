@@ -15,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative; /* Pour que la neige tombe par dessus tout */
 }
 
 /* Snowfall effect */
