@@ -1,42 +1,28 @@
-// Parallax effect for the background
-const background = document.querySelector('.background-anim');
+// Snowfall effect - create snowflakes
+const snowfallContainer = document.createElement('div');
+snowfallContainer.classList.add('snowfall');
+document.body.appendChild(snowfallContainer);
 
-let mouseX = 0;
-let mouseY = 0;
+function createSnowflake() {
+  const snowflake = document.createElement('div');
+  snowflake.classList.add('snowflake');
+  
+  // Random size for snowflakes
+  const size = Math.random() * 5 + 2;
+  snowflake.style.width = `${size}px`;
+  snowflake.style.height = `${size}px`;
 
-// Update mouse position
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+  // Random initial position
+  snowflake.style.left = `${Math.random() * 100}%`;
 
-// Create a parallax effect on background
-function moveBackground() {
-  const offsetX = (mouseX / window.innerWidth) * 100;
-  const offsetY = (mouseY / window.innerHeight) * 100;
+  // Append snowflake to the container
+  snowfallContainer.appendChild(snowflake);
 
-  background.style.transform = `translate(-${offsetX}%, -${offsetY}%)`;
-}
-
-// Simple particles effect in the background
-function createParticle() {
-  const particle = document.createElement('div');
-  particle.classList.add('particle');
-
-  particle.style.left = `${Math.random() * 100}%`;
-  particle.style.top = `${Math.random() * 100}%`;
-  particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
-  particle.style.animationDelay = `${Math.random() * 3}s`;
-
-  document.body.appendChild(particle);
-
+  // Remove snowflake after it falls (to prevent too many elements)
   setTimeout(() => {
-    particle.remove();
-  }, 5000); // Remove particle after animation
+    snowflake.remove();
+  }, 5000); // Snowflake disappears after 5s
 }
 
-// Generate particles every 200ms
-setInterval(createParticle, 200);
-
-// Animate background movement
-setInterval(moveBackground, 1000 / 60);
+// Generate snowflakes every 100ms
+setInterval(createSnowflake, 100);
