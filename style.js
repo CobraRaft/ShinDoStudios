@@ -18,9 +18,6 @@ function moveBackground() {
   background.style.transform = `translate(-${offsetX}%, -${offsetY}%)`;
 }
 
-// Animate background movement
-setInterval(moveBackground, 1000 / 60);
-
 // Simple particles effect in the background
 function createParticle() {
   const particle = document.createElement('div');
@@ -40,3 +37,6 @@ function createParticle() {
 
 // Generate particles every 200ms
 setInterval(createParticle, 200);
+
+// Animate background movement
+setInterval(moveBackground, 1000 / 60);
