@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #1e1e1e;
+  background-color: #000;
   color: #fff;
   overflow-x: hidden;
   height: 100vh;
@@ -17,32 +17,36 @@ body {
   text-align: center;
 }
 
-/* Background animation */
+/* Background animation (Constellations effect) */
 .background-anim {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #3b0a45, #ff005c, #00f5ff, #00aaff);
-  background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
+  background-color: #000;
   z-index: -1;
+  display: block;
 }
 
-@keyframes gradientAnimation {
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation: moveParticles 5s infinite;
+}
+
+@keyframes moveParticles {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    transform: translate(0, 0);
   }
   100% {
-    background-position: 0% 50%;
+    transform: translate(300px, 300px);
   }
 }
 
-/* Main header styles */
 .main-header {
   padding: 50px 20px;
   max-width: 900px;
@@ -52,7 +56,7 @@ body {
   font-size: 4rem;
   font-weight: bold;
   margin-bottom: 15px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .main-header p {
@@ -61,7 +65,6 @@ body {
   color: #ddd;
 }
 
-/* Buttons styles */
 .btn {
   display: inline-block;
   padding: 10px 25px;
@@ -75,36 +78,6 @@ body {
 
 .btn:hover {
   background-color: #00f5ff;
-}
-
-/* Discord button style */
-.discord {
-  background-color: #7289da;
-}
-
-.discord:hover {
-  background-color: #5865f2;
-}
-
-/* Section styles */
-.section {
-  padding: 50px 20px;
-  max-width: 900px;
-  margin: 50px auto;
-}
-
-.section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.project {
-  margin-bottom: 30px;
-}
-
-.project h3 {
-  font-size: 2rem;
-  margin-bottom: 10px;
 }
 
 /* Footer styles */
