@@ -7,9 +7,9 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #000;
+  background-color: #000; /* Fond noir */
   color: #fff;
-  overflow-x: hidden;
+  overflow: hidden;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -17,39 +17,39 @@ body {
   text-align: center;
 }
 
-/* Background animation (Constellations effect) */
-.background-anim {
+/* Snowfall effect */
+.snowfall {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
-  z-index: -1;
-  display: block;
+  pointer-events: none;
 }
 
-.particle {
+.snowflake {
   position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
+  top: -10px;
   background-color: #fff;
-  animation: moveParticles 5s infinite;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: snow 5s linear infinite;
 }
 
-@keyframes moveParticles {
+@keyframes snow {
   0% {
-    transform: translate(0, 0);
+    transform: translateX(0) translateY(0);
   }
   100% {
-    transform: translate(300px, 300px);
+    transform: translateX(100px) translateY(100vh);
   }
 }
 
 .main-header {
   padding: 50px 20px;
   max-width: 900px;
+  z-index: 10;
+  position: relative;
 }
 
 .main-header h1 {
